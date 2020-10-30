@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Casilla {
 
     private static int carcel;
-    
+
     private float importe;
     private String nombre;
 
@@ -29,26 +29,30 @@ public class Casilla {
         this.nombre = nombre;
         tipo = TipoCasilla.DESCANSO;
     }
+
     //CALLE
     Casilla(TituloPropiedad titulo) {
         init();
         tituloPropiedad = titulo;
         tipo = TipoCasilla.CALLE;
     }
+
     //IMPUESTO
     Casilla(float cantidad, String nombre) {
         init();
         this.nombre = nombre;
         importe = cantidad;
-        tipo = TipoCasilla.IMPUESTO;        
+        tipo = TipoCasilla.IMPUESTO;
     }
+
     //JUEZ
     Casilla(int numCasillaCarcel, String nombre) {
-        init ();
+        init();
         this.nombre = nombre;
         tipo = TipoCasilla.JUEZ;
         carcel = numCasillaCarcel;
     }
+
     //SORPRESA
     Casilla(MazoSorpresas mazo, String nombre) {
         init();
@@ -66,7 +70,7 @@ public class Casilla {
     }
 
     private void informe(int actual, ArrayList<Jugador> todos) {
-        Diario.getInstance().ocurreEvento("El jugador "+todos.get(actual).getNombre()+" ha caído en la casilla " + getNombre() + "\n"+toString());
+        Diario.getInstance().ocurreEvento("El jugador " + todos.get(actual).getNombre() + " ha caído en la casilla " + getNombre() + "\n" + toString());
     }
 
     private void init() {
@@ -76,15 +80,31 @@ public class Casilla {
     }
 
     public boolean jugadorCorrecto(int actual, ArrayList<Jugador> todos) {
-        return (actual>= 0 && actual < todos.size());
+        return (actual >= 0 && actual < todos.size());
     }
 
     //A implementar en la siguiente práctica
     void recibeJugador(int actual, ArrayList<Jugador> todos) {
-        
-    }
+        switch (tipo) {
+            case CALLE:
+                recibeJugador_calle(actual, todos);
+                break;
+            case IMPUESTO:
+                recibeJugador_impuesto (actual, todos);
+                break;
+            case JUEZ:
+                recibeJugador_juez (actual, todos);
+                break;
+            case SORPRESA:
+                recibeJugador_sorpresa (actual, todos);
+                break;
+            default:
+                informe (actual, todos);
+        }
+    
+
     private void recibeJugador_calle(int actual, ArrayList<Jugador> todos) {
-        
+
     }
 
     private void recibeJugador_impuesto(int actual, ArrayList<Jugador> todos) {
@@ -110,29 +130,28 @@ public class Casilla {
     public String toString() {
         return "Casilla{" + "importe=" + importe + ", nombre=" + nombre + ", tipo=" + tipo + ", tituloPropiedad=" + tituloPropiedad + ", sorpresa=" + sorpresa + ", mazo=" + mazo + '}';
     }
-    
-    public static void main (String args[]) {
+
+    public static void main(String args[]) {
         //Crea casilla DESCANSO
         Casilla descanso = new Casilla("Descanso");
         System.out.println(descanso.toString());
-        
+
         //Crea casilla CALLE
-        Casilla calle = new Casilla(new TituloPropiedad("Gran Vía", 150, (float)1.2, 200, (float)250, 50));
+        Casilla calle = new Casilla(new TituloPropiedad("Gran Vía", 150, (float) 1.2, 200, (float) 250, 50));
         System.out.println(calle.toString());
-        
+
         //Crea casilla IMPUESTO
-        Casilla impuesto = new Casilla((float)100, "Impuesto de luz");
+        Casilla impuesto = new Casilla((float) 100, "Impuesto de luz");
         System.out.println(impuesto.toString());
-        
+
         //Crea casilla JUEZ
         Casilla juez = new Casilla(10, "Cárcel");
         System.out.println(juez.toString());
-        
+
         //Crea casilla SORPRESA
         Casilla sorpresa = new Casilla(new MazoSorpresas(), "Casilla Sorpresa");
         System.out.println(sorpresa.toString());
-        
-        
+
     }
-    
+
 }

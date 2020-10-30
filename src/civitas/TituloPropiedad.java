@@ -51,8 +51,14 @@ public class TituloPropiedad {
     }
     
     //A implementar en prácticas posteriores
-    boolean cancelarhipoteca (Jugador jugador) {
-        return false;
+    boolean cancelarHipoteca (Jugador jugador) {
+        boolean result = false;
+        if (hipotecado && esEsteElPropietario(jugador)) {
+            jugador.paga(getImporteCancelarHipoteca());
+            hipotecado = false;
+            result = true;
+        }
+        return result;
     }
     
     /*
@@ -65,7 +71,13 @@ public class TituloPropiedad {
     
     //A implementar en prácticas posteriores
     boolean comprar(Jugador jugador) {
-        return false;
+        boolean result = false;
+        if (!tienePropietario()) {
+            propietario = jugador;
+            result = true;
+            propietario.paga(getPrecioCompra());
+        }
+        return result;
     }
     
     //A implementar en prácticas posteriores
@@ -75,7 +87,13 @@ public class TituloPropiedad {
     
     //A implementar en prácticas posteriores
     boolean construirHotel (Jugador jugador) {
-        return false;
+        boolean result = false;
+        if (esEsteElPropietario(jugador)) {
+            propietario.paga(precioEdificar);
+            numHoteles++;
+            result = true;
+        }
+        return result;
     }
     
     /*
@@ -189,7 +207,13 @@ public class TituloPropiedad {
     
     //A implementar en prácticas posteriores
     boolean hipotecar(Jugador jugador) {
-        return false;
+        boolean salida = false;
+        if (!hipotecado && esEsteElPropietario(jugador)) {
+            propietario.recibe(getImporteHipoteca());
+            hipotecado = true;
+            salida = true;
+        }
+        return salida;
     }
        
     /*

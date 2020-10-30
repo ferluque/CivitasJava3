@@ -22,7 +22,15 @@ public class CivitasJuego {
     
     //A implementar en la siguiente práctica
     private void avanzaJugador() {
-        
+        Jugador jugadorActual = jugadores.get(indiceJugadorActual);
+        int posicionActual = jugadorActual.getNumCasillaActual();
+        int tirada = Dado.getInstance().tirar();
+        int posicionNueva = tablero.nuevaPosicion(posicionActual, tirada);
+        Casilla casilla = tablero.getCasilla(posicionNueva);
+        contabilizarPasosPorSalida(jugadorActual);
+        jugadorActual.moverACasilla(posicionNueva);
+        casilla.recibeJugador(indiceJugadorActual, jugadores);
+        contabilizarPasosPorSalida(jugadorActual);    
     }
     public boolean cancelarHipoteca(int ip) {
         return getJugadorActual().cancelarHipoteca(ip);
