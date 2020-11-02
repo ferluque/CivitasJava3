@@ -83,7 +83,6 @@ public class Casilla {
         return (actual >= 0 && actual < todos.size());
     }
 
-    //A implementar en la siguiente práctica
     void recibeJugador(int actual, ArrayList<Jugador> todos) {
         switch (tipo) {
             case CALLE:
@@ -101,10 +100,18 @@ public class Casilla {
             default:
                 informe (actual, todos);
         }
+    }
     
 
     private void recibeJugador_calle(int actual, ArrayList<Jugador> todos) {
-
+        if (jugadorCorrecto(actual, todos)) {
+            informe (actual, todos);
+            if (!tituloPropiedad.tienePropietario())
+                todos.get(actual).puedeComprarCasilla(); //No sé si debería hacer algo
+            else {
+                tituloPropiedad.tramitarAlquiler(todos.get(actual));
+            }
+        }
     }
 
     private void recibeJugador_impuesto(int actual, ArrayList<Jugador> todos) {
@@ -121,9 +128,12 @@ public class Casilla {
         }
     }
 
-    //A implementar en la siguiente práctica
     private void recibeJugador_sorpresa(int actual, ArrayList<Jugador> todos) {
-
+        if (jugadorCorrecto(actual, todos)) {
+            Sorpresa sorpresa = mazo.siguiente();
+            informe(actual, todos);
+            sorpresa.aplicarAJugador(actual, todos);
+        }
     }
 
     @Override
