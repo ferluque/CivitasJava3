@@ -24,7 +24,7 @@ public class Dado {
         debug = false;
     }
 
-    static Dado getInstance() {
+    static public Dado getInstance() {
         return instance;
     }
 
@@ -44,7 +44,7 @@ public class Dado {
         return random.nextInt(n)+1;
     }
 
-    void setDebug(boolean d) {
+    public void setDebug(boolean d) {
         debug = d;
         Diario.getInstance().ocurreEvento("Se ha cambiado el modo del dado a " + d);
     }

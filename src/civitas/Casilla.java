@@ -18,10 +18,10 @@ public class Casilla {
     private float importe;
     private String nombre;
 
-    TipoCasilla tipo;
-    TituloPropiedad tituloPropiedad;
-    Sorpresa sorpresa;
-    MazoSorpresas mazo;
+    private TipoCasilla tipo;
+    private TituloPropiedad tituloPropiedad;
+    private Sorpresa sorpresa;
+    private MazoSorpresas mazo;
 
     //DESCANSO
     Casilla(String nombre) {

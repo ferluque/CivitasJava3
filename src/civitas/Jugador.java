@@ -26,10 +26,10 @@ public class Jugador implements Comparable<Jugador> {
     private boolean puedeComprar;
     private float saldo;
 
-    ArrayList<TituloPropiedad> propiedades = new ArrayList();
-    Sorpresa salvoconducto;
+    private ArrayList<TituloPropiedad> propiedades = new ArrayList();
+    private Sorpresa salvoconducto;
 
-    //A implementar en pr3
+    
     boolean cancelarHipoteca(int ip) {
         boolean result = false;
         if (encarcelado) {
@@ -68,7 +68,7 @@ public class Jugador implements Comparable<Jugador> {
         return Float.compare(this.saldo, otro.saldo);
     }
 
-    //A implementar en la pr3
+
     boolean comprar(TituloPropiedad titulo) {
         boolean result = false;
         if (encarcelado) {
@@ -94,10 +94,13 @@ public class Jugador implements Comparable<Jugador> {
         } else {
             existe = existeLaPropiedad(ip);
         }
-        TituloPropiedad propiedad = propiedades.get(ip);
         if (existe) {
-            if (puedoEdificarCasa(propiedad)) {
+            TituloPropiedad propiedad = propiedades.get(ip);
+            puedoEdificarCasa = puedoEdificarCasa(propiedad);
+            if (puedoEdificarCasa) {
                 result = propiedad.construirCasa(this);
+                if (result)
+                    Diario.getInstance().ocurreEvento("El jugador "+nombre+" construye casa en la propiedad "+ip);
             }
         }
         return result;
@@ -193,7 +196,7 @@ public class Jugador implements Comparable<Jugador> {
         return PasoPorSalida;
     }
 
-    protected ArrayList getPropiedades() {
+    public ArrayList getPropiedades() {
         return propiedades;
     }
 
@@ -204,8 +207,7 @@ public class Jugador implements Comparable<Jugador> {
     protected float getSaldo() {
         return saldo;
     }
-
-    //A implementar en la pr3    
+ 
     boolean hipotecar(int ip) {
         boolean result = false;
         if (encarcelado) {
@@ -227,6 +229,7 @@ public class Jugador implements Comparable<Jugador> {
 
     Jugador(String nombre) {
         this.nombre = nombre;
+        this.saldo = SaldoInicial;
     }
 
     protected Jugador(Jugador otro) {
@@ -306,7 +309,7 @@ public class Jugador implements Comparable<Jugador> {
 
     private boolean puedoEdificarCasa(TituloPropiedad propiedad) {
         assert (propiedades.contains(propiedad));
-        return puedoGastar(propiedad.getPrecioEdificar());
+        return (puedoGastar(propiedad.getPrecioEdificar())&&propiedad.getNumCasas()<getCasasMax());
     }
 
     private boolean puedoEdificarHotel(TituloPropiedad propiedad) {

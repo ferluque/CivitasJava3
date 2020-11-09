@@ -24,7 +24,7 @@ public class TituloPropiedad {
     private float precioCompra;
     private float precioEdificar;
     
-    Jugador propietario;
+    private Jugador propietario;
     
     /*
     @brief Constructor con parámetros iniciales
@@ -50,7 +50,6 @@ public class TituloPropiedad {
         propietario = jugador;
     }
     
-    //A implementar en prácticas posteriores
     boolean cancelarHipoteca (Jugador jugador) {
         boolean result = false;
         if (hipotecado && esEsteElPropietario(jugador)) {
@@ -69,7 +68,6 @@ public class TituloPropiedad {
         return getNumCasas() + getNumHoteles();
     }
     
-    //A implementar en prácticas posteriores
     boolean comprar(Jugador jugador) {
         boolean result = false;
         if (!tienePropietario()) {
@@ -82,10 +80,9 @@ public class TituloPropiedad {
     
     //A implementar en prácticas posteriores
     boolean construirCasa (Jugador jugador) {
-        return false;
+        
     }
     
-    //A implementar en prácticas posteriores
     boolean construirHotel (Jugador jugador) {
         boolean result = false;
         if (esEsteElPropietario(jugador)) {
@@ -119,6 +116,10 @@ public class TituloPropiedad {
     */
     private boolean esEsteElPropietario (Jugador jugador) {
         return jugador == propietario;
+    }
+    
+    public boolean getHipotecado () {
+        return hipotecado;
     }
     
     /*
@@ -205,7 +206,6 @@ public class TituloPropiedad {
         return propietario;
     }
     
-    //A implementar en prácticas posteriores
     boolean hipotecar(Jugador jugador) {
         boolean salida = false;
         if (!hipotecado && esEsteElPropietario(jugador)) {
@@ -225,12 +225,12 @@ public class TituloPropiedad {
     }
     
     boolean tienePropietario() {
-        return propietario != null;
+        return propietario.getNombre() != "";
     }
 
     @Override
     public String toString() {
-        return "TituloPropiedad{" + "alquilerBase=" + alquilerBase + ", factorRevalorizacion=" + factorRevalorizacion + ", hipotecaBase=" + hipotecaBase + ", hipotecado=" + hipotecado + ", nombre=" + nombre + ", numCasas=" + numCasas + ", numHoteles=" + numHoteles + ", precioCompra=" + precioCompra + ", precioEdificar=" + precioEdificar + ", propietario= "+propietario.toString() + '}';
+        return "TituloPropiedad{" + "alquilerBase=" + alquilerBase + ", factorRevalorizacion=" + factorRevalorizacion + ", hipotecaBase=" + hipotecaBase + ", hipotecado=" + hipotecado + ", nombre=" + nombre + ", numCasas=" + numCasas + ", numHoteles=" + numHoteles + ", precioCompra=" + precioCompra + ", precioEdificar=" + precioEdificar + ", propietario= "+propietario.getNombre() + '}';
     }
     
     void tramitarAlquiler (Jugador jugador) {

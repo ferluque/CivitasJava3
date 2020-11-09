@@ -14,13 +14,13 @@ import java.util.Collections;
  */
 public class CivitasJuego {
 
-    int indiceJugadorActual;
+    private int indiceJugadorActual;
 
-    MazoSorpresas mazo;
-    Tablero tablero;
-    ArrayList<Jugador> jugadores = new ArrayList(0);
-    EstadosJuego estado;
-    GestorEstados gestorEstados;
+    private MazoSorpresas mazo;
+    private Tablero tablero;
+    private ArrayList<Jugador> jugadores = new ArrayList(0);
+    private EstadosJuego estado;
+    private GestorEstados gestorEstados;
 
     private void avanzaJugador() {
         Jugador jugadorActual = jugadores.get(indiceJugadorActual);
@@ -38,7 +38,7 @@ public class CivitasJuego {
         return getJugadorActual().cancelarHipoteca(ip);
     }
 
-    CivitasJuego(ArrayList<String> nombres) {
+    public CivitasJuego(ArrayList<String> nombres) {
         for (int i = 0; i < nombres.size(); i++) {
             jugadores.add(new Jugador(nombres.get(i)));
         }
@@ -139,10 +139,10 @@ public class CivitasJuego {
     }
 
     private void pasarTurno() {
-        indiceJugadorActual = (indiceJugadorActual + 1) % 4;
+        indiceJugadorActual = (indiceJugadorActual + 1) % jugadores.size();
     }
 
-    private ArrayList<Jugador> ranking() {
+    public ArrayList<Jugador> ranking() {
         ArrayList<Jugador> ordenado = new ArrayList(jugadores);
         Collections.sort(ordenado);
         Collections.reverse(ordenado);

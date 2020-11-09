@@ -17,7 +17,7 @@ public class Tablero {
     private int porSalida;
     private boolean tieneJuez;
     
-    Tablero(int carcel) {
+    public Tablero(int carcel) {
         if (carcel>=1) //&&carcel < 20?
             numCasillaCarcel = carcel;
         casillas = new ArrayList();
@@ -40,6 +40,10 @@ public class Tablero {
     
     int getPorSalida() {
         return porSalida;
+    }
+    
+    public ArrayList<Casilla> getCasillas() {
+        return casillas;
     }
     
     private void consultaCarcel () {

@@ -16,9 +16,9 @@ public class Sorpresa {
     private String texto;
     private int valor;
 
-    MazoSorpresas mazo;
-    TipoSorpresa tipo;
-    Tablero tablero;
+    private MazoSorpresas mazo;
+    private TipoSorpresa tipo;
+    private Tablero tablero;
 
     //Sorpresa de cárcel
     Sorpresa(TipoSorpresa tipo, Tablero tablero) {
