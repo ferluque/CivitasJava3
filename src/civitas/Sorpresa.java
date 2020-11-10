@@ -159,7 +159,7 @@ public class Sorpresa {
 
     @Override
     public String toString() {
-        return "Sorpresa{" + "texto=" + texto + ", valor=" + valor + ", mazo=" + mazo + ", tipo=" + tipo + ", tablero=" + tablero + '}';
+        return "Sorpresa{" + "texto=" + texto + ", valor=" + valor + ", tipo=" + tipo + ", tablero=" + tablero + '}';
     }
 
     void usada() {

@@ -22,7 +22,7 @@ public class JuegoTexto {
      */
     public static void main(String[] args) {
         VistaTextual vista = new VistaTextual();
-        CivitasJuego juego = new CivitasJuego((new ArrayList<>(Arrays.asList("Fernando", "Israel", "Pedro"))));
+        CivitasJuego juego = new CivitasJuego((new ArrayList<>(Arrays.asList("Fernando", "Israel"))));
         
         Dado.getInstance().setDebug(true);
         

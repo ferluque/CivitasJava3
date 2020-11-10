@@ -5,7 +5,12 @@
         <group>
             <file>file:/home/ferluque/NetBeansProjects/CivitasJava3/src/JuegoTexto/Controlador.java</file>
             <file>file:/home/ferluque/NetBeansProjects/CivitasJava3/src/civitas/CivitasJuego.java</file>
+            <file>file:/home/ferluque/NetBeansProjects/CivitasJava3/src/civitas/Tablero.java</file>
+            <file>file:/home/ferluque/NetBeansProjects/CivitasJava3/src/civitas/OperacionInmobiliaria.java</file>
+            <file>file:/home/ferluque/NetBeansProjects/CivitasJava3/src/civitas/Jugador.java</file>
+            <file>file:/home/ferluque/NetBeansProjects/CivitasJava3/src/civitas/TituloPropiedad.java</file>
             <file>file:/home/ferluque/NetBeansProjects/CivitasJava3/src/JuegoTexto/VistaTextual.java</file>
+            <file>file:/home/ferluque/NetBeansProjects/CivitasJava3/src/civitas/Sorpresa.java</file>
         </group>
     </open-files>
 </project-private>

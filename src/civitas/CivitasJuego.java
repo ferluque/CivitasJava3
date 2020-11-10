@@ -17,7 +17,7 @@ public class CivitasJuego {
     private int indiceJugadorActual;
 
     private MazoSorpresas mazo;
-    private Tablero tablero;
+    private Tablero tablero; 
     private ArrayList<Jugador> jugadores = new ArrayList(0);
     private EstadosJuego estado;
     private GestorEstados gestorEstados;
@@ -48,10 +48,11 @@ public class CivitasJuego {
         indiceJugadorActual = Dado.getInstance().quienEmpieza(nombres.size() - 1);
 
         mazo = new MazoSorpresas();
-        tablero = new Tablero(5);
+        tablero = new Tablero(10);
 
         inicializarMazoSorpresas(tablero);
         inicializarTablero(mazo);
+        tablero.mostrarLegible();
     }
 
     

@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Casilla {
 
-    private static int carcel;
+    private int carcel;   ///////////No puede ser static no?
 
     private float importe;
     private String nombre;
@@ -35,6 +35,7 @@ public class Casilla {
         init();
         tituloPropiedad = titulo;
         tipo = TipoCasilla.CALLE;
+        nombre = titulo.getNombre();
     }
 
     //IMPUESTO
@@ -74,7 +75,6 @@ public class Casilla {
     }
 
     private void init() {
-        carcel = -1;
         importe = 0;
         nombre = "";
     }
@@ -138,9 +138,13 @@ public class Casilla {
 
     @Override
     public String toString() {
-        return "Casilla{" + "importe=" + importe + ", nombre=" + nombre + ", tipo=" + tipo + ", tituloPropiedad=" + tituloPropiedad + ", sorpresa=" + sorpresa + ", mazo=" + mazo + '}';
+        return "Casilla{" + "nombre=" + nombre + ", importe=" + importe +  ", tipo=" + tipo + ", tituloPropiedad=" + tituloPropiedad + ", sorpresa=" + sorpresa + ", mazo=" + mazo + '}';
     }
 
+    public TipoCasilla Tipo () {
+        return tipo;
+    }
+    
     public static void main(String args[]) {
         //Crea casilla DESCANSO
         Casilla descanso = new Casilla("Descanso");
