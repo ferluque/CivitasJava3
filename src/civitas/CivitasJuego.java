@@ -52,7 +52,6 @@ public class CivitasJuego {
 
         inicializarMazoSorpresas(tablero);
         inicializarTablero(mazo);
-        tablero.mostrarLegible();
     }
 
     
