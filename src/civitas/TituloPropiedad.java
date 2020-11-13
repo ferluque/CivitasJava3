@@ -80,11 +80,13 @@ public class TituloPropiedad {
     
     //A implementar en prácticas posteriores
     boolean construirCasa (Jugador jugador) {
-        if (!hipotecado && tienePropietario()) {
+        boolean result = false;
+        if (esEsteElPropietario(jugador)){
+            propietario.paga(precioEdificar);
             numCasas++;
-            return true;
+            result = true;
         }
-        return false;
+        return result;
     }
     
     boolean construirHotel (Jugador jugador) {
