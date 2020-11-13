@@ -90,13 +90,6 @@ public class Tablero {
         return "Tablero{" + "numCasillaCarcel=" + numCasillaCarcel + ", casillas.size=" + casillas.size() + ", porSalida=" + porSalida + ", tieneJuez=" + tieneJuez + '}';
     }
     
-    public void mostrarLegible() {
-        System.out.println("TABLERO COMPLETO:");
-        for (int i=0; i<casillas.size(); i++){
-            System.out.println(i+": "+ casillas.get(i).getNombre()+" - TIPO: " + casillas.get(i).Tipo());
-        }
-        System.out.println("Tiene Juez? " + tieneJuez);
-    }
         
     
     

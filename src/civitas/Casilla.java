@@ -141,10 +141,7 @@ public class Casilla {
         return "Casilla{" + "nombre=" + nombre + ", importe=" + importe +  ", tipo=" + tipo + ", tituloPropiedad=" + tituloPropiedad + ", sorpresa=" + sorpresa + ", mazo=" + mazo + '}';
     }
 
-    public TipoCasilla Tipo () {
-        return tipo;
-    }
-    
+ 
     public static void main(String args[]) {
         //Crea casilla DESCANSO
         Casilla descanso = new Casilla("Descanso");
