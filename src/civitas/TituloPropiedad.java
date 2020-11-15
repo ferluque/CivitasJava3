@@ -248,9 +248,9 @@ public class TituloPropiedad {
     }
     
     boolean vender (Jugador jugador) {
-        if (jugador.compareTo(propietario) != 0 && !hipotecado) {
+        if (esEsteElPropietario(jugador)&& !hipotecado) {
             propietario.recibe(getPrecioVenta());
-            propietario = jugador;
+            propietario = new Jugador("");
             return true;
         }
         return false;

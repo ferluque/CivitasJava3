@@ -36,7 +36,7 @@ public class Controlador {
             //vista.pausa();
 
             OperacionesJuego operacion = juego.siguientePaso();
-
+            
             System.out.println(separador);
             System.out.println(juego.getJugadorActual().getNombre());
             vista.mostrarSiguienteOperacion(operacion);
