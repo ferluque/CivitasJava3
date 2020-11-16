@@ -71,7 +71,7 @@ public class Casilla {
     }
 
     private void informe(int actual, ArrayList<Jugador> todos) {
-        Diario.getInstance().ocurreEvento("El jugador " + todos.get(actual).getNombre() + " ha caído en la casilla " + getNombre() + "\n" + toString());
+        Diario.getInstance().ocurreEvento("El jugador " + todos.get(actual).getNombre() + " ha caído en la casilla " + getNombre());
     }
 
     private void init() {

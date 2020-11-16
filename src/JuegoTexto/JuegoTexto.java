@@ -24,7 +24,7 @@ public class JuegoTexto {
         VistaTextual vista = new VistaTextual();
         CivitasJuego juego = new CivitasJuego((new ArrayList<>(Arrays.asList("Fernando", "Israel"))));
         
-        Dado.getInstance().setDebug(true);
+        Dado.getInstance().setDebug(false);
         
         Controlador controlador = new Controlador(juego, vista);
         

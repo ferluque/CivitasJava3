@@ -33,7 +33,7 @@ public class Controlador {
 
         while (!juego.finalDelJuego()) {
             vista.actualizarVista();
-            //vista.pausa();
+            vista.pausa();
 
             OperacionesJuego operacion = juego.siguientePaso();
             
