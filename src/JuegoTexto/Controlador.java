@@ -30,7 +30,7 @@ public class Controlador {
     void juega() {
         final String separador = "-----------------------------------------------------";
         vista.setCivitasJuego(juego);
-
+       
         while (!juego.finalDelJuego()) {
             vista.actualizarVista();
             vista.pausa();
